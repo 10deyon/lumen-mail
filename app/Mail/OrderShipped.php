@@ -37,14 +37,14 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
-        dd('../../public/features.pptx');
+        // dd('../../public/features.pptx');
         // return $this->view('emails.mail')->with(['order' => $this->order, 'shipped' => $this->shipped]);
 
         return $this->view('emails.mail')
-            // ->with([
-            //     'orderName' => $this->order,
-            //     'orderPrice' => $this->shipped,
-            // ])
+            ->with([
+                'orderName' => $this->order,
+                'orderPrice' => $this->shipped,
+            ])
             ->attach('././public/features.pptx', [
                 'as' => 'features.pptx',
                 'mime' => 'application/pptx',
